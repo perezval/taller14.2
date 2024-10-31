@@ -14,7 +14,7 @@
 
   <div class="container">
     <main>
-      <form action="#" method="get" class="row mt-4">
+      <form action="#" method="get" class="row mt-4 needs-validation" novalidate>
         <div class="col">
           <h1 class="mb-3">Registro</h1>
           <hr class="my-4">
@@ -22,31 +22,37 @@
             <div class="col-sm-6">
               <label for="nombre" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="nombre">
+              <div class="invalid-feedback">Debe ingresar un nombre.</div>
             </div>
 
             <div class="col-sm-6">
               <label for="apellido" class="form-label">Apellido</label>
               <input type="text" class="form-control" id="apellido">
+              <div class="invalid-feedback">Debe ingresar su apellido.</div>
             </div>
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
               <input type="email" class="form-control" id="email">
+              <div class="invalid-feedback">Debe ingresar su email.</div>
             </div>
 
             <div class="col-sm-6">
-              <label for="password1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="password1">
+              <label for="password1" class="form-label" minlength="6">Contraseña</label>
+              <input type="password" class="form-control" id="password1" minlength="6">
+              <div class="invalid-feedback">Debe ingresar una contraseña con al menos 6 caracteres.</div>
             </div>
 
             <div class="col-sm-6">
               <label for="password2" class="form-label">Repetir contraseña</label>
-              <input type="password" class="form-control" id="password2">
+              <input type="password" class="form-control" id="password2" minlength="6">
+              <div class="invalid-feedback">Debe ser igual a "contraseña"</div>
             </div>
 
             <div class="col-sm-12">
-              <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+              <button type="button" id="TermBut" class="btn btn-link ps-0" data-bs-toggle="modal"
                 data-bs-target="#modalTerminos">Términos del servicio</button>
+              <span class="invalid-feedback" id="termsFeedback">Debe aceptar los términos del servicio.</span>
             </div>
 
 
@@ -71,7 +77,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5">Términos y condiciones del servicio.</h1>
+          <h1 class="modal-title fs-5" id="modalTitle">Términos y condiciones del servicio.</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -82,7 +88,8 @@
         <div class="modal-footer">
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="terminos">
-            <label class="form-check-label" for="terminos">Acepto los términos y condiciones del servicio.</label>
+            <label class="form-check-label" id="termsLabel" for="terminos">Acepto los términos y condiciones del
+              servicio.</label>
           </div>
         </div>
       </div>
